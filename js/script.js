@@ -1,11 +1,12 @@
 let randomNumber = document.getElementById("numeri-random");
-setTimeout(indovinaNumero, 3000);
+let result = document.getElementById("risultato");
 let arrNumbers = [];
 let userNumbers = [];
-
-
 let i = 0
 
+setTimeout(numeriDnone, 1000);
+
+/*
 while ( i < 5){
     let randomNumbers = Math.floor(Math.random() * (100 - 1) + 1);
     const eleNumber = document.createElement("div");
@@ -15,13 +16,34 @@ while ( i < 5){
     arrNumbers.push(randomNumbers);
     i++
     console.log(arrNumbers)
+}*/
+
+function numeriDnone(){
+    while ( i < 5){
+        let randomNumbers = Math.floor(Math.random() * (100 - 1) + 1);
+        while (arrNumbers.includes(randomNumbers)){
+            randomNumbers = Math.floor(Math.random() * (100 - 1) + 1);
+        }
+        arrNumbers.push(randomNumbers);
+        console.log(randomNumbers);
+        const eleNumber = document.createElement("div");
+        eleNumber.classList.add("number");
+        eleNumber.innerHTML = randomNumbers;
+        randomNumber.append(eleNumber);
+        i++
+        console.log(arrNumbers)
+    }
 }
 
-function indovinaNumero(){
-    for (i = 0; i < 5; i++){
-        const tellNumbers = parseInt(prompt("Reinserisci i numeri in ordine"));
-        console.log(tellNumbers);
+setTimeout(indovinaNumero, 3000);
 
+function indovinaNumero(){
+    randomNumber.style.display = "none";
+    for (i = 0; i < 5; i++){
+        let tellNumbers = parseInt(prompt("Reinserisci i numeri in ordine"));
+        console.log(tellNumbers);
+        userNumbers.push(tellNumbers)
+        
         if (arrNumbers.includes(tellNumbers)){
             console.log("ottimo!");
             userNumbers.push(tellNumbers)
@@ -29,14 +51,15 @@ function indovinaNumero(){
             console.log("non va bene");
         }
         //console.log(userNumbers) 
+        console.log(arrNumbers)
+        console.log(userNumbers)
     }
-    if (arrNumbers = userNumbers){
-        console.log("Hai vinto!");
+    if (arrNumbers == userNumbers){
+        result.innerHTML = `Hai vinto!`;
     } else {
-        console.log("Hai perso!");
+        result.innerHTML = `Hai perso!`;
     } 
-    console.log(arrNumbers)
-    console.log(userNumbers)
+
 }
 
 
