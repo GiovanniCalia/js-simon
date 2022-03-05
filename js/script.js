@@ -27,27 +27,31 @@ function clearNumbers(){
 setTimeout(indovinaNumero, 3000);
 
 function indovinaNumero(){
+    let numeriesatti = [];
     for (i = 0; i < 5; i++){
         let tellNumbers = parseInt(prompt("Reinserisci i numeri in ordine"));
-        console.log(tellNumbers);
+        //console.log(tellNumbers);
         userNumbers.push(tellNumbers);
         
-        /*
+        
         if (arrNumbers.includes(tellNumbers)){
+            numeriesatti.push(tellNumbers);
             console.log("ottimo!");
             userNumbers.push(tellNumbers)
         } else{
             console.log("non va bene");
-        }*/
+        }
     }
-    if (arrNumbers == userNumbers){
+    console.log(`hai indovinato questi numeri: ${numeriesatti}`);
+    /*
+    if (arrNumbers.includes(numeriesatti)){
         result.innerHTML = `Hai vinto!`;
     } else {
         result.innerHTML = `Hai perso!`;
     } 
     console.log(arrNumbers);
     console.log(userNumbers);
-
+    console.log(numeriesatti)*/
 }
 
 
