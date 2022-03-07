@@ -20,13 +20,13 @@ while ( i < 5){
     i++;
 } 
 
-setTimeout(clearNumbers, 2990);
+setTimeout(clearNumbers, 29900);
 
 function clearNumbers(){
     randomNumber.style.display = "none";
 }
 
-setTimeout(indovinaNumero, 3000);
+setTimeout(indovinaNumero, 30000);
 
 function indovinaNumero(){
 
