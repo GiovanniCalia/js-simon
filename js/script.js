@@ -1,7 +1,6 @@
 let randomNumber = document.getElementById("numeri-random");
 let result = document.getElementById("risultato");
 let arrNumbers = [];
-let exactNumbers = [];
 let i = 0
 
 while ( i < 5){
@@ -20,23 +19,37 @@ while ( i < 5){
     i++;
 } 
 
-setTimeout(clearNumbers, 29900);
+setTimeout(clearNumbers, 2990);
 
 function clearNumbers(){
     randomNumber.style.display = "none";
 }
 
-setTimeout(indovinaNumero, 30000);
+setTimeout(indovinaNumero, 3000);
 
 function indovinaNumero(){
+    let exactNumbers = [];
+    for (let i = 0; i < 5; i++){
+        let tellNumbers;
+        do{
+            tellNumbers = parseInt(prompt("Reinserisci i numeri in ordine"));
+            if (exactNumbers.includes(tellNumbers)){
+                prompt("Numero già esistente, inseriscine un altro")
+            }
+        } while (exactNumbers.includes(tellNumbers));
 
-    for (i = 0; i < 5; i++){
-        let tellNumbers = parseInt(prompt("Reinserisci i numeri in ordine"));
+        exactNumbers.push(tellNumbers);
+    }
 
-        if (arrNumbers.includes(tellNumbers)){
-            exactNumbers.push(tellNumbers);
+    let numeriIndovinati = [];
+
+    for (let i = 0; i < 5; i++){
+       if (arrNumbers[i] == exactNumbers[i]){
+        numeriIndovinati.push(exactNumbers[i]);
         }
     }
 
-    result.innerHTML = (`Hai indovinato questi numeri: ${exactNumbers}.`);
+    result.innerHTML = (`Hai indovinato questi numeri: ${numeriIndovinati}, in totale sono ${numeriIndovinati.length}.`);
 }
+
+
